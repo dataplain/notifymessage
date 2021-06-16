@@ -33,6 +33,7 @@ Create the src/plugins/notifymessage.js:
 ```javascript
 import Vue from "vue";
 import NotifyMessage from "@dataplain/notifymessage";
+import "@dataplain/notifymessage/dist/NotifyMessage.css";
 
 Vue.use(NotifyMessage, { NotifyMessageName: "MyNotifyMessage" });
 ```
@@ -64,6 +65,12 @@ new Vue({
 
         <my-notify-message message="Another example" customClass="my-custom-class" position="bottom-right">
             <span>[*]</span>
+        </my-notify-message>
+
+        <!-- you can use predefined classes from your preferred framework, such as bootstrap -->
+        <my-notify-message message="Customized with bootstrap classes" position="bottom-left" customClass="bg-danger text-light p-3">
+            <!-- if you use bootstrap-vue, insert a spinner -->
+            <b-spinner small />
         </my-notify-message>
     </div>
 </template>
