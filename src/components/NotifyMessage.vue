@@ -21,7 +21,7 @@ export default {
         position: {
             type: String,
             default: "top-right",
-            validation: position => ["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right"].includes(position)
+            validator: position => ["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right"].includes(position)
         }
     },
     computed: {
