@@ -77,7 +77,7 @@ export default {
     },
     created() {
         setTimeout(() => {
-            this.message = "";
+            this.myMessage = "";
         }, 5000);
     }
 }
