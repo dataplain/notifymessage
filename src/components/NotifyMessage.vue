@@ -1,9 +1,7 @@
 <template>
-    <div v-if="message" class="message-container" :class="{ messageTop: top, messageBottom: bottom, messageCenter: center, messageRight: right }">
-        <div class="message-main" :class="customClass">
-            <div><slot /></div>
-            <div class="message-content">{{ message }}</div>
-        </div>
+    <div v-if="message" class="message-container" :class="{ messageTop: top, messageBottom: bottom, messageLeft: left, messageRight: right }">
+        <div><slot /></div>
+        <div class="message-content">{{ message }}</div>
     </div>
 </template>
 
@@ -14,14 +12,10 @@ export default {
             type: String,
             default: ""
         },
-        customClass: {
-            type: String,
-            default: ""
-        },
         position: {
             type: String,
             default: "top-right",
-            validator: position => ["top-left", "top-center", "top-right", "bottom-left", "bottom-center", "bottom-right"].includes(position)
+            validator: position => ["top-left", "top-right", "bottom-left", "bottom-right"].includes(position)
         }
     },
     computed: {
@@ -31,8 +25,8 @@ export default {
         bottom() {
             return this.position.split("-")[0] == "bottom";
         },
-        center() {
-            return this.position.split("-")[1] == "center";
+        left() {
+            return this.position.split("-")[1] == "left";
         },
         right() {
             return this.position.split("-")[1] == "right";
@@ -43,26 +37,20 @@ export default {
 
 <style scoped>
 .message-container {
-    display: flex;
-    max-height: 40%;
     position: fixed;
-    width: 100%;
-    z-index: 999;
-}
-.message-main {
-    margin: 0 20px;
     background-color: #fff;
     color: #000;
     display: flex;
     max-width: 40%;
+    max-height: 40%;
 }
 @media only screen and (max-width: 1000px ) {
-    .message-main {
+    .message-container {
         max-width: 60%;
     }
 }
 @media only screen and (max-width: 600px ) {
-    .message-main {
+    .message-container {
         max-width: 80%;
     }
 }
@@ -73,11 +61,11 @@ export default {
 .messageBottom {
     bottom: 20px;
 }
-.messageCenter {
-    justify-content: center;
+.messageLeft {
+    left: 20px;
 }
 .messageRight {
-    justify-content: right;
+    right: 20px;
 }
 
 .message-content {

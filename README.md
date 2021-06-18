@@ -61,7 +61,7 @@ new Vue({
 ```vue
 <template>
     <div>
-        <my-notify-message :message="myMessage" customClass="my-custom-class" position="top-center" />
+        <my-notify-message :message="myMessage" customClass="my-custom-class" position="top-left" />
 
         <my-notify-message message="Another example" customClass="my-custom-class" position="bottom-right">
             <span>[*]</span>
@@ -107,7 +107,7 @@ message | Text message to show | no |
 customClass | CSS Class to apply on message | no |
 position | Screen position for displaying the message | no | top-right (1)
 
-(1) Valid positions: top-left, top-center, top-right, bottom-left, bottom-center, bottom-right
+(1) Valid positions: top-left, top-right, bottom-left, bottom-right
 
 ## Slot
 
